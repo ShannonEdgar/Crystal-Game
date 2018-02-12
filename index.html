@@ -23,7 +23,7 @@
 
 <h2>Each time the game starts, the game will change the value of each crystal.</h2><br>
 
-<h2>Your target numer is </h2>
+<h2>Your target number is </h2>
 <div id="targetNumberHere"></div><br><br>
 
 
@@ -53,7 +53,7 @@ $(document).ready(function(){
 var wins = 0;
 var loses = 0;
 var targetNumber = Math.floor(Math.random() * ((120-19)+1) + 19);
-var score = 3;
+var score = 0;
 var targetNumberHere;
 var updateScore;
 
@@ -62,10 +62,6 @@ var clickPink = Math.floor((Math.random() * 12) + 1);
 var clickPurple = Math.floor((Math.random() * 12) + 1);
 var clickBlue = Math.floor((Math.random() * 12) + 1);
 
-// pushes target number to page
- $("#targetNumberHere").text(targetNumber);
- $("#wins").text(wins);
- $("#loses").text(loses);
 
 // pushes crystal images to page
 var imageCrystalGreen = $("<img src=assets/images/green.png>");
@@ -81,63 +77,73 @@ var imageCrystalPurple = $("<img src=assets/images/purple.png>");
 $("#imageCrystalPurple").append(imageCrystalPurple);
 
 
-
+// click functions for images
 $("#imageCrystalGreen").on("click", function(){
-	var updateScore = clickGreen + score;
-	$("#scoreDiv").text(updateScore);
-	console.log(updateScore);
+	score += clickGreen
+	$("#scoreDiv").text(score);
+	console.log(clickGreen);
+	checkGuess()
 });
 
 $("#imageCrystalPink").on("click", function(){
-	var updateScore = clickPink + score;
-	$("#scoreDiv").text(updateScore);
-	console.log(updateScore);
+	score += clickPink
+	$("#scoreDiv").text(score);
+	console.log(clickPink);
+	checkGuess()
+});
+
+$("#imageCrystalBlue").on("click", function(){
+	score += clickBlue
+	$("#scoreDiv").text(score);
+	console.log(clickBlue);
+	checkGuess()
+});
+
+$("#imageCrystalPurple").on("click", function(){
+	score += clickPurple
+	$("#scoreDiv").text(score);
+	console.log(clickPurple);
+	checkGuess()
 });
 
 
+var checkGuess = function() {
+	if (score === targetNumber) {
+		wins++;
+		reset()
+		alert("You Win!");
+		$("#wins").html(wins);
+		console.log(wins)
+	} else if (score > targetNumber) {
+		loses++;
+		reset()
+		alert ("You lose!");
+		$("#loses").html(loses);
+		console.log(loses)
+	};
+
+};
+
+// pushes target number to page
+ $("#targetNumberHere").text(targetNumber);
+ $("#wins").html(wins);
+ $("#loses").html(loses);
+ $("#score").html(score);
 
 
+var reset = function() {
+	var score = 0;
+	var wins = 0;
+	var loses = 0;
+	var clickGreen = Math.floor((Math.random() * 12) + 1);
+	var clickPink = Math.floor((Math.random() * 12) + 1);
+	var clickPurple = Math.floor((Math.random() * 12) + 1);
+	var clickBlue = Math.floor((Math.random() * 12) + 1);
+	console.log(score)
 
-//Working before parseint
-// $("#imageCrystalPink").on("click", function(){
-// 	var updateScore = clickPink + score;
-// 	$("#scoreDiv").text(updateScore);
-// 	console.log(updateScore);
-// });
-
-
-
-// $("#wins").text(wins);
-// $("#loses").text(loses);
-
-
-
-// if (score === targetNumber) {
-//      alert("You win!");
-//  }
-
-// else if (score >= targetNumber) {
-// 	 alert("You lose!!");
-// }
-
-
-
-
-
-
-
-
-
-
-
-
+};
 
 </script>
-
-
-
-
-
 
 
 
