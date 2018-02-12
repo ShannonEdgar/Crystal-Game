@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Crystal Collector</title>
+
+
+	 <link rel="stylesheet" type="text/css" href="assets/reset.css">
+	 <link rel="stylesheet" type="text/css" href="assets/style.css">
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+</head>
+<body>
+<div id="container">
+<h1>Welcome to Crystal Collector</h1><br>
+
+<p>You will be given a random number at the start of the game.</p><br>
+
+<p>There are 4 crystals below. Clicking each will add a specific amount of points to your total score. You win the game by matching your total score to the random number, you loose the game if your total score goes above the random number.</p><br>
+
+<p>The value of each crystal is hidden from you until you click on it.</p><br>
+
+<h2>Each time the game starts, the game will change the value of each crystal.</h2><br>
+
+<h2>Your target numer is </h2>
+<div id="targetNumberHere"></div><br><br>
+
+
+<button id="button1"><div id="imageCrystalGreen" class=inline></div></button>
+<div id="imageCrystalPink" class=inline></div>
+<div id="imageCrystalPurple" class=inline></div>
+<div id="imageCrystalBlue" class=inline></div>
+
+<div class="row">
+			<div class="col-sm-4"><h2>Wins<div id="wins"></div></h2> </div>
+			<div class="col-md-4"><h2>Loses<div id="loses"></div></h2></div>
+			<div class="col-md-4"><h2>Score<div id="scoreDiv"></div></h2></div>
+</div>
+<br>
+
+
+<script type="text/javascript">
+
+
+//	* The random number shown at the start of the game should be between 19 - 120.
+
+//* Each crystal should have a random hidden value between 1 - 12.
+
+$(document).ready(function(){
+});
+	
+var wins = 0;
+var loses = 0;
+var targetNumber = Math.floor(Math.random() * ((120-19)+1) + 19);
+var score = 3;
+var targetNumberHere;
+var updateScore;
+
+var clickGreen = Math.floor((Math.random() * 12) + 1);
+var clickPink = Math.floor((Math.random() * 12) + 1);
+var clickPurple = Math.floor((Math.random() * 12) + 1);
+var clickBlue = Math.floor((Math.random() * 12) + 1);
+
+// pushes target number to page
+ $("#targetNumberHere").text(targetNumber);
+ $("#wins").text(wins);
+ $("#loses").text(loses);
+
+// pushes crystal images to page
+var imageCrystalGreen = $("<img src=assets/images/green.png>");
+$("#imageCrystalGreen").append(imageCrystalGreen);
+
+var imageCrystalPink = $("<img src=assets/images/pink.png>");
+$("#imageCrystalPink").append(imageCrystalPink);
+
+var imageCrystalBlue = $("<img src=assets/images/blue.png>");
+$("#imageCrystalBlue").append(imageCrystalBlue);
+
+var imageCrystalPurple = $("<img src=assets/images/purple.png>");
+$("#imageCrystalPurple").append(imageCrystalPurple);
+
+
+
+$("#imageCrystalGreen").on("click", function(){
+	var updateScore = clickGreen + score;
+	$("#scoreDiv").text(updateScore);
+	console.log(updateScore);
+});
+
+$("#imageCrystalPink").on("click", function(){
+	var updateScore = clickPink + score;
+	$("#scoreDiv").text(updateScore);
+	console.log(updateScore);
+});
+
+
+
+
+
+//Working before parseint
+// $("#imageCrystalPink").on("click", function(){
+// 	var updateScore = clickPink + score;
+// 	$("#scoreDiv").text(updateScore);
+// 	console.log(updateScore);
+// });
+
+
+
+// $("#wins").text(wins);
+// $("#loses").text(loses);
+
+
+
+// if (score === targetNumber) {
+//      alert("You win!");
+//  }
+
+// else if (score >= targetNumber) {
+// 	 alert("You lose!!");
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+</div>
+</body>
+</html>

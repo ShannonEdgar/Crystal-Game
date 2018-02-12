@@ -1,0 +1,43 @@
+#container{
+	width: 650px;
+	font-family: sans-serif;
+	margin: auto;
+	text-align: center;
+	padding-top: 25px;
+}
+
+h1 {
+	font-size: 25px;
+}
+
+p {
+	line-height: 22px;
+}
+
+h2 {
+	font-weight: bold;
+	font-size: 15px;
+}
+
+img {
+	height: 300px;
+	width: 150px;
+	display: inline;
+}
+
+.row {
+	display: inline;
+}
+s
+#targetNumberHere{
+	font-weight: bold;
+	font-size: 35px
+}
+
+.inline{
+	display: inline;
+}
+
+#button1 {
+	border: none;
+}
