@@ -1,5 +1,5 @@
 #container{
-	width: 650px;
+	width: 630px;
 	font-family: sans-serif;
 	margin: auto;
 	text-align: center;
@@ -12,12 +12,9 @@ h1 {
 
 p {
 	line-height: 22px;
+ 
 }
 
-h2 {
-	font-weight: bold;
-	font-size: 35px;
-}
 
 img {
 	height: 300px;

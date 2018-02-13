@@ -8,23 +8,18 @@
 	 <link rel="stylesheet" type="text/css" href="assets/reset.css">
 	 <link rel="stylesheet" type="text/css" href="assets/style.css">
 	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	
 </head>
 <body>
 <div id="container">
-<h1>Welcome to Crystal Collector</h1><br>
+<h1>Welcome to Crystal Collector</h1>
 
-<p>You will be given a random number at the start of the game.</p><br>
+<p>There are 4 crystals below. Clicking each will add a specific amount of points to your total score. You win the game by matching your total score to the target number, you loose the game if your total score goes above the target number.</p>
 
-<p>There are 4 crystals below. Clicking each will add a specific amount of points to your total score. You win the game by matching your total score to the random number, you loose the game if your total score goes above the random number.</p><br>
+<p>The value of each crystal is hidden from you until you click on it. Each time the game starts, the game will change the value of each crystal.</p><br>
 
-<p>The value of each crystal is hidden from you until you click on it.</p><br>
-
-<h2>Each time the game starts, the game will change the value of each crystal.</h2><br>
-
-<h2>Your target number is </h2>
-<div id="targetNumberHere"></div><br><br>
+<h3>Your target number is </h3>
+<div id="targetNumberHere"></div>
 
 
 <button id="button1"><div id="imageCrystalGreen" class=inline></div></button>
@@ -39,113 +34,8 @@
 </div>
 <br>
 
-
-<script type="text/javascript">
-
-
-//	* The random number shown at the start of the game should be between 19 - 120.
-
-//* Each crystal should have a random hidden value between 1 - 12.
-
-$(document).ready(function(){
-});
-	
-var wins = 0;
-var loses = 0;
-var targetNumber = Math.floor(Math.random() * ((120-19)+1) + 19);
-var score = 0;
-var targetNumberHere;
-var updateScore;
-
-var clickGreen = Math.floor((Math.random() * 12) + 1);
-var clickPink = Math.floor((Math.random() * 12) + 1);
-var clickPurple = Math.floor((Math.random() * 12) + 1);
-var clickBlue = Math.floor((Math.random() * 12) + 1);
-
-
-// pushes crystal images to page
-var imageCrystalGreen = $("<img src=assets/images/green.png>");
-$("#imageCrystalGreen").append(imageCrystalGreen);
-
-var imageCrystalPink = $("<img src=assets/images/pink.png>");
-$("#imageCrystalPink").append(imageCrystalPink);
-
-var imageCrystalBlue = $("<img src=assets/images/blue.png>");
-$("#imageCrystalBlue").append(imageCrystalBlue);
-
-var imageCrystalPurple = $("<img src=assets/images/purple.png>");
-$("#imageCrystalPurple").append(imageCrystalPurple);
-
-
-// click functions for images
-$("#imageCrystalGreen").on("click", function(){
-	score += clickGreen
-	$("#scoreDiv").text(score);
-	console.log(clickGreen);
-	checkGuess()
-});
-
-$("#imageCrystalPink").on("click", function(){
-	score += clickPink
-	$("#scoreDiv").text(score);
-	console.log(clickPink);
-	checkGuess()
-});
-
-$("#imageCrystalBlue").on("click", function(){
-	score += clickBlue
-	$("#scoreDiv").text(score);
-	console.log(clickBlue);
-	checkGuess()
-});
-
-$("#imageCrystalPurple").on("click", function(){
-	score += clickPurple
-	$("#scoreDiv").text(score);
-	console.log(clickPurple);
-	checkGuess()
-});
-
-
-var checkGuess = function() {
-	if (score === targetNumber) {
-		wins++;
-		reset()
-		alert("You Win!");
-		$("#wins").html(wins);
-		console.log(wins)
-	} else if (score > targetNumber) {
-		loses++;
-		reset()
-		alert ("You lose!");
-		$("#loses").html(loses);
-		console.log(loses)
-	};
-
-};
-
-// pushes target number to page
- $("#targetNumberHere").text(targetNumber);
- $("#wins").html(wins);
- $("#loses").html(loses);
- $("#score").html(score);
-
-
-var reset = function() {
-	var score = 0;
-	var wins = 0;
-	var loses = 0;
-	var clickGreen = Math.floor((Math.random() * 12) + 1);
-	var clickPink = Math.floor((Math.random() * 12) + 1);
-	var clickPurple = Math.floor((Math.random() * 12) + 1);
-	var clickBlue = Math.floor((Math.random() * 12) + 1);
-	console.log(score)
-
-};
-
-</script>
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="assets/javs.js"></script>
 
 </div>
 </body>
